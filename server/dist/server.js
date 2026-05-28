@@ -2,7 +2,6 @@ import express from "express";
 import http from "http";
 import { Server } from "socket.io";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
 import { registerSocketHandlers } from "./socketHandler.js";
 const app = express();
 const httpServer = http.createServer(app);
@@ -12,11 +11,10 @@ const io = new Server(httpServer, {
     },
 });
 registerSocketHandlers(io);
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-app.use(express.static(path.join(__dirname, "../../client/dist")));
+const clientDistPath = path.resolve(__dirname, "../../client/dist");
+app.use(express.static(clientDistPath));
 app.get("*", (_, res) => {
-    res.sendFile(path.join(__dirname, "../../client/dist/index.html"));
+    res.sendFile(path.join(clientDistPath, "index.html"));
 });
 const PORT = 3000;
 httpServer.listen(PORT, () => {

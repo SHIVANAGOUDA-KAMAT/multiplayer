@@ -3,10 +3,10 @@ node_modules
 */node_modules
 
 # production builds
-build
 dist
-*/build
+build
 */dist
+*/build
 
 # env files
 .env
