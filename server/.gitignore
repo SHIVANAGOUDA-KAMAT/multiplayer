@@ -4,7 +4,9 @@ node_modules
 
 # production builds
 build
+dist
 */build
+*/dist
 
 # env files
 .env
