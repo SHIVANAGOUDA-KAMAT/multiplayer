@@ -17,26 +17,16 @@ const io = new Server(httpServer, {
 
 registerSocketHandlers(io);
 
-const __filename = fileURLToPath(
-  import.meta.url
+const clientDistPath = path.resolve(
+  __dirname,
+  "../../client/dist"
 );
 
-const __dirname = path.dirname(
-  __filename
-);
-
-app.use(
-  express.static(
-    path.join(__dirname, "../../client/dist")
-  )
-);
+app.use(express.static(clientDistPath));
 
 app.get("*", (_, res) => {
   res.sendFile(
-    path.join(
-      __dirname,
-      "../../client/dist/index.html"
-    )
+    path.join(clientDistPath, "index.html")
   );
 });
 
