@@ -58,7 +58,6 @@ export function registerSocketHandlers(
           socket.emit("room:error", {
             message: "Room does not exist",
           });
-
           return;
         }
 
