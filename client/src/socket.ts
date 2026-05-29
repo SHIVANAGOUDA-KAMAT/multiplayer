@@ -1,3 +1,3 @@
 import {io, Socket} from 'socket.io-client';
 
-export const socket:Socket = io("http://localhost:5174");
+export const socket: Socket = io(import.meta.env.VITE_SOCKET_URL)
