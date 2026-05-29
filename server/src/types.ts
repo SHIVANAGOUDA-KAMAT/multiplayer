@@ -19,3 +19,7 @@ export interface RoomUpdatePayload {
   roomId: string;
   players: string[];
 }
+
+export interface DeleteRoomPayload {
+  roomId: string;
+}

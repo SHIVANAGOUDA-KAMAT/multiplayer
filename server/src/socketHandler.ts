@@ -12,6 +12,7 @@ import {
   CreateRoomPayload,
   JoinRoomPayload,
   GameMessagePayload,
+  DeleteRoomPayload,
 } from "./types.js";
 
 export function registerSocketHandlers(
@@ -77,6 +78,11 @@ export function registerSocketHandlers(
         );
       }
     );
+
+    // Delete room
+    socket.on("room:delete", ({roomId} : DeleteRoomPayload) => {
+      io.in(roomId).disconnectSockets();
+    })
 
     // GAME MESSAGE
     socket.on(

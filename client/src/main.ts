@@ -37,6 +37,10 @@ const sendBtn =
     "sendBtn"
   ) as HTMLButtonElement;
 
+const container = document.getElementById(
+  "container"
+) as HTMLDivElement;
+
 function addMessage(
   text: string
 ): void {
@@ -53,6 +57,14 @@ createBtn.addEventListener(
     socket.emit("room:create", {
       roomId: roomInput.value,
     });
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete Room";
+    deleteBtn.addEventListener("click", () => {
+      socket.emit("room:delete", {
+        roomId: roomInput.value,
+      });
+    });
+    container.appendChild(deleteBtn);
   }
 );
 
