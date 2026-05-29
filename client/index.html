@@ -1,54 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  />
-
-  <title>Socket.IO Rooms</title>
-</head>
-
-<body>
-
-  <div id="container" class="container">
-
-    <h1>Socket.IO Rooms</h1>
-
-    <input
-      id="roomInput"
-      placeholder="Room ID"
-    />
-
-    <div class="buttons">
-      <button id="createBtn">
-        Create Room
-      </button>
-
-      <button id="joinBtn">
-        Join Room
-      </button>
-    </div>
-
-    <input
-      id="messageInput"
-      placeholder="Message"
-    />
-
-    <button id="sendBtn">
-      Send
-    </button>
-
-    <ul id="messages"></ul>
-
-  </div>
-
-  <script
-    type="module"
-    src="/src/main.ts"
-  ></script>
-
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>react-multiplayer</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
